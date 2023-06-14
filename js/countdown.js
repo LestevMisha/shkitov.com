@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Find the distance between now and the count down date
         var distance = countDownDate - now;
 
-        if (distance < 0) {xw
+        if (distance < 0) {
             countDownDate.setDate(currentTime.getDate() + 13);
             distance = countDownDate - now;
             localStorage.setItem("countDownDate", countDownDate.getTime());
