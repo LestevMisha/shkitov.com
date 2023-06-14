@@ -1,2 +1,2 @@
 git push --force -u origin main
-add
+finally success!
