@@ -15,5 +15,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: danyasqc.beget.tech
-        username: danyasqc_FTP
-        password: ${{ L4%7QqjmPgeww^stop# }}
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
