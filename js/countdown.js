@@ -1,41 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-    var countDownDate = new Date();
-    var currentTime = new Date();
+    const targetDate = new Date("June 22, 2023"); // Replace "June 22, 2023" with your desired target date
+
     const isTimed = localStorage.getItem("isTimed");
     if (!isTimed) {
-        countDownDate.setDate(currentTime.getDate() + 13);
-        localStorage.setItem("countDownDate", countDownDate.getTime());
+        localStorage.setItem("targetDate", targetDate.getTime());
         localStorage.setItem("isTimed", true);
     } else {
-        countDownDate.setTime(parseInt(localStorage.getItem("countDownDate")));
+        targetDate.setTime(parseInt(localStorage.getItem("targetDate")));
     }
 
-    // Update the count down every 1 second
-    var x = setInterval(function () {
-        // Get today's date and time
-        var now = new Date().getTime();
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+    // Update the countdown every 1 second
+    const countdownInterval = setInterval(() => {
+        // Get the current date and time
+        const now = new Date().getTime();
+
+        // Find the distance between now and the target date
+        const distance = targetDate - now;
 
         if (distance < 0) {
-            countDownDate.setDate(currentTime.getDate() + 13);
-            distance = countDownDate - now;
-            localStorage.setItem("countDownDate", countDownDate.getTime());
+            targetDate.setDate(targetDate.getDate() + 1);
+            targetDate.setHours(0, 0, 0, 0);
+            localStorage.setItem("targetDate", targetDate.getTime());
         }
 
         // Time calculations for days, hours, minutes, and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Russian names for days, hours, minutes, and seconds
-        var daysString = days === 1 ? "день" : days < 5 ? "дня" : "дней";
-        var hoursString = hours === 1 ? "час" : hours < 5 ? "часа" : "часов";
-        var minutesString = minutes === 1 ? "минута" : minutes < 5 ? "минуты" : "минут";
-        var secondsString = seconds === 1 ? "секунда" : seconds < 5 ? "секунды" : "секунд";
+        const daysString = days === 1 ? "день" : days < 5 ? "дня" : "дней";
+        const hoursString = hours === 1 ? "час" : hours < 5 ? "часа" : "часов";
+        const minutesString = minutes === 1 ? "минута" : minutes < 5 ? "минуты" : "минут";
+        const secondsString = seconds === 1 ? "секунда" : seconds < 5 ? "секунды" : "секунд";
 
-        // Display the result in the element with id="countdown"
+        // Display the result in the element with the corresponding IDs
         document.getElementById("days_number").innerHTML = days;
         document.getElementById("hours_number").innerHTML = hours;
         document.getElementById("minutes_number").innerHTML = minutes;
@@ -46,5 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("minutes").innerHTML = minutesString;
         document.getElementById("seconds").innerHTML = secondsString;
 
-    }, 1000)
+    }, 1000);
 });
