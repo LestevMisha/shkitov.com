@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const targetDate = new Date("Jun 29 2023 12:25:15"); // Replace "June 22, 2023" with your desired target date
+    const targetDate = new Date("July 13, 2023 12:00:00 GMT+0300"); // Replace "June 22, 2023" with your desired target date
 
     const isTimed = localStorage.getItem("isTimed");
     if (!isTimed) {
@@ -23,11 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("hours_number").innerHTML = default_;
             document.getElementById("minutes_number").innerHTML = default_;
             document.getElementById("seconds_number").innerHTML = default_;
+
+            document.getElementById("days").innerHTML = "дней";
+            document.getElementById("hours").innerHTML = "часов";
+            document.getElementById("minutes").innerHTML = "минут";
+            document.getElementById("seconds").innerHTML = "секунд";
+
             localStorage.clear();
             clearInterval(countdownInterval);
         } else {
-
-
             // Time calculations for days, hours, minutes, and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -51,6 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("minutes").innerHTML = minutesString;
             document.getElementById("seconds").innerHTML = secondsString;
         }
-
     }, 1000);
 });
