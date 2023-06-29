@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const targetDate = new Date("Jun 29 2023 12:17:05"); // Replace "June 22, 2023" with your desired target date
+    const targetDate = new Date("Jun 29 2023 12:23:45"); // Replace "June 22, 2023" with your desired target date
 
     const isTimed = localStorage.getItem("isTimed");
     if (!isTimed) {
@@ -17,13 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Find the distance between now and the target date
         const distance = targetDate - now;
 
-        if (distance < 0) {
+        if (distance <= 0 || distance == NaN) {
             const default_ = "00";
             document.getElementById("days_number").innerHTML = default_;
             document.getElementById("hours_number").innerHTML = default_;
             document.getElementById("minutes_number").innerHTML = default_;
             document.getElementById("seconds_number").innerHTML = default_;
             localStorage.clear();
+            clearInterval(countdownInterval);
         }
 
         // Time calculations for days, hours, minutes, and seconds
@@ -50,4 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("seconds").innerHTML = secondsString;
 
     }, 1000);
+    countdownInterval();
+
 });
