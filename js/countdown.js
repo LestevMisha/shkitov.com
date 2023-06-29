@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const targetDate = new Date("Jun 29 2023 12:23:45"); // Replace "June 22, 2023" with your desired target date
+    const targetDate = new Date("Jun 29 2023 12:25:15"); // Replace "June 22, 2023" with your desired target date
 
     const isTimed = localStorage.getItem("isTimed");
     if (!isTimed) {
@@ -51,6 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("seconds").innerHTML = secondsString;
 
     }, 1000);
-    countdownInterval();
-
 });
