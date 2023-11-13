@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const targetDate = new Date("November 16, 2023 12:00:00 GMT+0300"); // Replace "June 22, 2023" with your desired target date
+    const targetDate = new Date("November 26, 2023 12:00:00 GMT+0300"); // Replace "June 22, 2023" with your desired target date
 
     const isTimed = localStorage.getItem("isTimed");
     if (!isTimed) {
