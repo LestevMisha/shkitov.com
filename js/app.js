@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const butttons = document.querySelectorAll(".b-btn");
     butttons.forEach((button) => {
         button.addEventListener("click", function () {
-            document.location.href = "https://t.me/+X9f-EMioOdlkMTJi";
+            document.location.href = "https://t.me/+-6n4p-rRvoowYmVi";
         })
     });
 
