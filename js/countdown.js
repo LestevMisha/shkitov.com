@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const targetDate = new Date("October 28, 2024 14:00:00 GMT+0300");
+    const targetDate = new Date("December 24, 2024 14:00:00 GMT+0300");
 
     const isTimed = localStorage.getItem("isTimed");
     if (!isTimed) {
